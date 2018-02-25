@@ -3,7 +3,7 @@
 
 **What does the helper function (sundays') calculate?**
 
-"sundays'" calculates the total number of sundays which is on the first day of the month and keep recursion untill the given parameter (end year) is reached.
+"sundays'" calculates the total number of Sundays which is on the first day of the month and keep recursion untill the given parameter (end year) is reached.
 
 **What if you don't define a "rest" and use its expression where it's needed?**
 
