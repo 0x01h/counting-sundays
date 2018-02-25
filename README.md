@@ -1,5 +1,5 @@
-# blg458e_hw1
-## HW #1: Counting Sundays in Haskell. ##
+# BLG 458E - HW #1 #
+## Counting Sundays in Haskell. ##
 
 **What does the helper function (sundays') calculate?**
 
