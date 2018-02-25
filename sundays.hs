@@ -22,3 +22,16 @@ sundays1 start end = sundays' start 1
         nextY = y + 1
         nextM = m + 1
         rest = if (nextM == 13) then sundays' nextY 1 else sundays' y nextM
+
+leap :: Integer -> Bool
+leap y = a && b || c
+  where
+    a = ((y `mod` 4) == 0)
+    b = ((y `mod` 100) /= 0)
+    c = ((y `mod` 400) == 0)
+
+days_in_month :: Integer -> Integer -> Integer
+days_in_month m y
+  | m == 2 = if leap y then 29 else 28
+  | (m == 4) || (m == 6) || (m == 9) || (m == 11) = 30
+  | otherwise = 31
