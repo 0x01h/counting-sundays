@@ -35,3 +35,15 @@ days_in_month m y
   | m == 2 = if leap y then 29 else 28
   | (m == 4) || (m == 6) || (m == 9) || (m == 11) = 30
   | otherwise = 31
+
+sundays2 :: Integer -> Integer -> Integer
+sundays2 start end = sundays' start 1 2
+  where
+    sundays' :: Integer -> Integer -> Integer -> Integer
+    sundays' y m weekday
+      | y > end = 0
+      | otherwise = if ((weekday `mod` 7) == 0) then rest + 1 else rest
+      where
+        nextY = y + 1
+        nextM = m + 1
+        rest = if (nextM == 13) then sundays' nextY 1 (weekday + ((days_in_month m y) `mod` 7)) else sundays' y nextM (weekday + ((days_in_month m y) `mod` 7))
