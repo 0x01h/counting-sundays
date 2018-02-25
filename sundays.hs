@@ -47,3 +47,19 @@ sundays2 start end = sundays' start 1 2
         nextY = y + 1
         nextM = m + 1
         rest = if (nextM == 13) then sundays' nextY 1 (weekday + ((days_in_month m y) `mod` 7)) else sundays' y nextM (weekday + ((days_in_month m y) `mod` 7))
+
+sundays1_tail :: Integer -> Integer -> Integer
+sundays1_tail start end = sundays' start 1
+  where
+    acc = 1
+    sundays' :: Integer -> Integer -> Integer
+    sundays' y m
+      | y > end = acc
+      | otherwise = if day_of_week y m 1 == 1 then rest acc + 1 else rest acc
+        where
+          nextY = y + 1
+          nextM = m + 1
+          rest :: Integer -> Integer
+          rest acc
+            | nextM == 13 = sundays' nextY 1
+            | otherwise = sundays' y nextM
