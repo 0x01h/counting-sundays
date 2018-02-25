@@ -2,8 +2,8 @@
 -- ID: 150140121
 -- Date: February 25, 2018
 
-day_of_week :: Integer -> Integer -> Integer -> Integer
-day_of_week y m d = z
+dayOfWeek :: Integer -> Integer -> Integer -> Integer
+dayOfWeek y m d = z
   where
     z = (d + t1 + k + t2 + t3 + 5 * j) `mod` 7
     j = y `div` 100
@@ -21,7 +21,7 @@ sundays1 start end = sundays' start 1
     sundays' :: Integer -> Integer -> Integer
     sundays' y m
       | y > end = 0
-      | otherwise = if day_of_week y m 1 == 1 then rest + 1 else rest
+      | otherwise = if dayOfWeek y m 1 == 1 then rest + 1 else rest
       where
         nextY = y + 1
         nextM = m + 1
@@ -55,11 +55,11 @@ sundays2 start end = sundays' start 1 2
 sundays1_tail :: Integer -> Integer -> Integer
 sundays1_tail start end = sundays' start 1
   where
-    acc = 1
+    acc = 0
     sundays' :: Integer -> Integer -> Integer
     sundays' y m
       | y > end = acc
-      | otherwise = if day_of_week y m 1 == 1 then rest acc + 1 else rest acc
+      | otherwise = if dayOfWeek y m 1 == 1 then rest acc + 1 else rest acc
         where
           nextY = y + 1
           nextM = m + 1
