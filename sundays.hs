@@ -1,3 +1,7 @@
+-- Author: Orçun Özdemir
+-- ID: 150140121
+-- Date: February 25, 2018
+
 day_of_week :: Integer -> Integer -> Integer -> Integer
 day_of_week y m d = z
   where
